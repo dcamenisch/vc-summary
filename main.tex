@@ -1,0 +1,55 @@
+\documentclass[10pt, landscape, a4paper]{article}
+\usepackage{geometry}[landscape]
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{amsmath} 
+\usepackage{amssymb}
+
+\usepackage[dvipsnames]{xcolor}
+
+% Set page margins
+\geometry{top=.8cm, left=.8cm, right=.8cm, bottom=.8cm}
+
+% Set paragraph indentation
+\setlength{\parindent}{0pt}
+
+% Set path for assets
+\graphicspath{{assets/}}
+
+\setlength{\columnsep}{20pt}
+\raggedcolumns
+
+% _____ CUSTOM COMMANDS __________________________________________
+\newcommand{\R}[0]{\mathbb{R}}
+
+\newcommand{\sgn}[0]{\text{sgn}}
+
+\begin{document}
+\begin{multicols*}{3}
+
+% _____ CONTENT __________________________________________________
+
+% main heading
+\begin{center}
+	\Large{\textbf{Introduction to Machine Learning}} \\
+    \small{by dcamenisch}
+\end{center}
+
+\input{introduction.tex}
+\input{regression.tex}
+\input{optimization.tex}
+\input{model-error.tex}
+\input{classification.tex}
+\input{hypothesis-testing.tex}
+\input{kernels.tex}
+\input{other-nonlinear-methods.tex}
+\input{neural-networks.tex}
+\input{unsupervised-learning.tex}
+
+\end{multicols*}
+\end{document}
+
+% ____ FOOTER ______________________________________________________
+% Content and Template: 
+% original by Danny Camenisch (dcamenisch@inf.ethz.ch), 2022
+% based on different summaries from many helpful people
