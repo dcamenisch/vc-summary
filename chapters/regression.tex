@@ -42,8 +42,8 @@ From out input vector $x$ we extract a \textbf{feature vector} $\phi(x)$ by usin
 
 We will later see that too complex models are not always good, as the use too many features. If we want to reduce the number of features, we can encourage sparsity by introducing a penalty term. We commonly use:
 \begin{itemize}
-	\item \textbf{Lasso Regression}: $\underset{w \in \R^d}{\text{argmin}} ||y - \Phi w||^2 + \lambda ||w||_1$
-	\item \textbf{Ridge Regression}: $\underset{w \in \R^d}{\text{argmin}} ||y - \Phi w||^2 + \lambda ||w||_2$
+	\item \textbf{Lasso Regression}: $\argmin{w \in \R^d} ||y - \Phi w||^2 + \lambda ||w||_1$
+	\item \textbf{Ridge Regression}: $\argmin{w \in \R^d} ||y - \Phi w||^2 + \lambda ||w||_2$
 \end{itemize}
 
 Lasso regression sets a lot of weights to zero, while ridge regression just puts the focus on lower weights.

@@ -20,9 +20,13 @@
 \raggedcolumns
 
 % _____ CUSTOM COMMANDS __________________________________________
+\newcommand{\E}[0]{\mathbb{E}}
 \newcommand{\R}[0]{\mathbb{R}}
 
 \newcommand{\sgn}[0]{\text{sgn}}
+
+\newcommand{\argmin}[1]{\underset{#1}{\text{argmin}}}
+\newcommand{\argmax}[1]{\underset{#1}{\text{argmax}}}
 
 \begin{document}
 \begin{multicols*}{3}
@@ -35,16 +39,18 @@
     \small{by dcamenisch}
 \end{center}
 
-\input{introduction.tex}
-\input{regression.tex}
-\input{optimization.tex}
-\input{model-error.tex}
-\input{classification.tex}
-\input{hypothesis-testing.tex}
-\input{kernels.tex}
-\input{other-nonlinear-methods.tex}
-\input{neural-networks.tex}
-\input{unsupervised-learning.tex}
+\input{chapters/introduction.tex}
+\input{chapters/regression.tex}
+\input{chapters/optimization.tex}
+\input{chapters/model-error.tex}
+\input{chapters/classification.tex}
+\input{chapters/hypothesis-testing.tex}
+\input{chapters/kernels.tex}
+\input{chapters/other-nonlinear-methods.tex}
+\input{chapters/neural-networks.tex}
+\input{chapters/unsupervised-learning.tex}
+\input{chapters/statistical-perspective.tex}
+\input{chapters/bayesian-decision.tex}
 
 \end{multicols*}
 \end{document}

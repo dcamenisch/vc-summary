@@ -1,7 +1,7 @@
 \section{Model Error}
 
 We generally want to minimize the estimation error $\ell(\hat{f}(x), f^*(x))$, since we do not know $f^*$ we can not actually compute this value. Instead, we usually observe $y_i = f^*(x_i) + \epsilon_i$. For each observed sample we can compute the \textbf{prediction error} $\ell(\hat{f}(x), y)$, in fact we are often interested in the average prediction error or \textbf{generalization error}:
-$$R(\hat{f}) := \mathbb{E}_{x,y}[\ell(\hat{f}(x), y)] = \mathbb{E}_x[\ell(\hat{f}(x), f^*(x))] + \epsilon$$
+$$R(\hat{f}) := \E_{x,y}[\ell(\hat{f}(x), y)] = \E_x[\ell(\hat{f}(x), f^*(x))] + \epsilon$$
 
 The generalization error computed over all possible $(x,y)$ pairs weighted by how likely each is. 
 
@@ -43,8 +43,8 @@ Model complexity is closely related to training and generalization error.
 
 For different datasets $D_1,...,D_K$ we define:
 \begin{itemize}
-	\item \textbf{Bias} - distance of the average model $\bar{f} = \frac{1}{K} \sum_{i=1}^K \hat{f}_i$ to the ground truth $\mathbb{E}_x[\ell(\bar{f}(x), f^*(x))]$
-	\item \textbf{Variance} - average distance of the models to the average model $\mathbb{E}_x[\frac{1}{K} \sum_{i=1}^K \ell(\hat{f}_i(x), \bar{f}(x))]$
+	\item \textbf{Bias} - distance of the average model $\bar{f} = \frac{1}{K} \sum_{i=1}^K \hat{f}_i$ to the ground truth $\E_x[\ell(\bar{f}(x), f^*(x))]$
+	\item \textbf{Variance} - average distance of the models to the average model $\E_x[\frac{1}{K} \sum_{i=1}^K \ell(\hat{f}_i(x), \bar{f}(x))]$
 \end{itemize}
 
 \begin{center}

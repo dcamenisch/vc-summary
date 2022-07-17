@@ -1,7 +1,7 @@
 \section{Classification}
 
 Instead of predicting $y \in \R$, we limit $y$ to be in a finite, discrete set $Y$ (e.g. $\{-1, +1\}$). When looking at binary classification we often use the labels $-1, +1$ and let the predicted value be equal to $\hat{y} = \sgn\hat{f}(x)$. Similar to regression we care about the generalization error:
-$$R(\hat{f}) = \mathbb{P}_{x,y} [y \neq \sgn \hat{f}(x)] = \mathbb{E}_{x,y}[\ell_{0-1}(\hat{f}(x), y)]$$
+$$R(\hat{f}) = \mathbb{P}_{x,y} [y \neq \sgn \hat{f}(x)] = \E_{x,y}[\ell_{0-1}(\hat{f}(x), y)]$$
 
 Where we call $\ell_{0-1}(\hat{f}(x), y) = \mathbb{I}_{y \neq \sgn \hat{f}(x)}$ the \textbf{zero-one loss}. Since this loss is neither convex nor continuous, we can not efficiently minimize the training error with it. Therefore we introduce different type of loss functions:
 \begin{itemize}
@@ -37,7 +37,7 @@ $$\nabla \ell(\hat{f}(x), y) = \frac{y_i x_i}{1 + e^{y_i \hat{f}(x)}}$$
  For linearly separable data, gradient descent on the logistic loss converges to the direction $w_\text{MM}$ that maximizes the minimum $\ell_2$-distance between the decision boundary and $y_i$. We call this the \textbf{maximum-margin} solution.
  
  In particular we can write:
- $$w_\text{MM} = \underset{||w||_2 = 1}{\text{argmax}} \min_i y_i w^\top x_i ) = \underset{||w||_2 = 1}{\text{argmax}} \; \text{margin} (w)$$
+ $$w_\text{MM} = \argmax{||w||_2 = 1} \min_i y_i w^\top x_i ) = \argmax{||w||_2 = 1} \; \text{margin} (w)$$
  
  Instead of just linear functions, we can again use feature mapping to receive nonlinear classifiers.
  

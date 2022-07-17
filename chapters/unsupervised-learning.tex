@@ -9,7 +9,7 @@ Given an unlabelled dataset, we try to learn feature similarities based on proxi
 \end{center}
 
 Each data points is assigned by:
-$$z_j = \underset{i}{\text{argmin}} ||x_j - \mu_i||_2, \quad z_j \in \{1, ..., k\}$$
+$$z_j = \argmin{i} ||x_j - \mu_i||_2, \quad z_j \in \{1, ..., k\}$$
 
 To pick the optimal centers we try to minimize the sum of squared distances:
 $$\hat{R} (\mu) = \sum_{i=1}^n \min_{j\in \{1,...,k\}} ||x_i - \mu_j||_2^2$$
@@ -20,7 +20,7 @@ This is a non-convex optimization problem and NP-hard. One way of finding a good
 	\item While not converged:
 		\begin{enumerate}
 			\item Assign each point to closest center:
-				$$z_i \leftarrow \underset{j\in \{1,...,k\}}{\text{argmin}} ||x_i - \mu_j^{(t-1)}||_2$$		
+				$$z_i \leftarrow \argmin{j\in \{1,...,k\}} ||x_i - \mu_j^{(t-1)}||_2$$		
 			\item Update centers as mean of assigned data points:
 				$$\mu_j^{(t)} \leftarrow \frac{1}{n_j} \sum_{i | z_i = j} x_i$$  	
 		\end{enumerate}
@@ -50,10 +50,10 @@ We limit $w$ to be of unit length to guarantee a unique solution.
 \end{center}
 
 Since for a given $w$ the minimal distance vector $\bar{x}_i - x_i$ is perpendicular to $w$, we find that the optimal solution for $z_i = w^\top x_i$. We can now substitute $z_i$ and receive the following optimization goal:
-$$\hat{w} = \underset{||w||_2=1}{\text{argmin}} \sum_{i=1}^n ||x_i - w w^\top x_i||_2^2$$
+$$\hat{w} = \argmin{||w||_2=1} \sum_{i=1}^n ||x_i - w w^\top x_i||_2^2$$
 
 Which again can be reformulated as:
-$$\hat{w} = \underset{||w||_2=1}{\text{argmax}} \sum_{i=1}^n (w^\top x_i)^2 \text{ or } \hat{w} = \underset{||w||_2=1}{\text{argmax}} \; w^\top \Sigma w$$
+$$\hat{w} = \argmax{||w||_2=1} \; \sum_{i=1}^n (w^\top x_i)^2 \text{ or } \hat{w} = \argmax{||w||_2=1} \; w^\top \Sigma w$$
 
 Where $\Sigma = \frac{1}{n} \sum_{i=1}^n x_i x_i^\top$ is the empirical covariance. Since we still have an argmax this is not a minimization problem anymore and we can not find a solution like in previous problems. There still exists a closed form solution given by the principal eigenvector of $\Sigma$, i.e. $w = v_1$ where for $\lambda_1 \geq ... \geq \lambda_d \geq 0$:
 $$\Sigma = \sum_{i=1}^d \lambda_i v_i v_i^\top$$
@@ -77,7 +77,7 @@ Again we run into problems trying to work with complex arrangements of data, e.g
 \end{center}
 
 Similar to supervised learning where we worked with kernels, we can take the same approach for unsupervised learning. Since it holds $\Sigma = \frac{1}{n} \sum_{i=1}^n x_i x_i^\top = X^\top X$ we can apply the kernel trick. We start by assuming $w = \Phi^\top \alpha$, plugging this into our objective and the constraint we end up with:
-$$\hat{\alpha} = \underset{\alpha}{\text{argmax}} \; \frac{\alpha^\top K^\top K \alpha}{\alpha^\top K \alpha}$$
+$$\hat{\alpha} = \argmax{\alpha} \; \frac{\alpha^\top K^\top K \alpha}{\alpha^\top K \alpha}$$
 
 We arrive at the general closed form solution:
 $$\alpha^{(i)} = \frac{1}{\sqrt{\lambda_i}}v_i \quad K = \sum_{i = 1}^n \lambda_i v_i v_i^\top \quad \lambda_1 \geq ... \geq \lambda_n \geq 0$$
