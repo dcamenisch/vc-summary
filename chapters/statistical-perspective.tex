@@ -108,7 +108,7 @@ Where $\sigma(z) = \frac{1}{1 + \exp(-z)}$ is the sigmoid function. Using MLE we
 
 Which is exactly the logistic loss. Instead of solving MLE we can estimate MAP, e.g. with a Gaussian prior:
 \begin{align*}
-	\hat w &= \argmax{w} \; p(w \; | \; \hat x, \hat y) \\
+	\hat w &= \argmax{w} \; p(w \; | \; \bar x, \bar y) \\
 	&= \argmin{w} \; \lambda ||w||_2^2 + \sum_{i = 1}^n \log (1 + \exp(-y_i w^\top x_i))
 \end{align*}
 
