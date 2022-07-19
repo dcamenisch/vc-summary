@@ -36,11 +36,11 @@ Linear functions helped us to keep the calculations "simple" and find good solut
 
 \includegraphics[width=\columnwidth]{feature-mapping.png}
 
-From out input vector $x$ we extract a \textbf{feature vector} $\phi(x)$ by using a fixed mapping $\phi$ that can consist of any nonlinear function. On this feature vector we can use the already known methods for linear functions to find a solution.
+From our input vector $x$ we extract a \textbf{feature vector} $\phi(x)$ by using a fixed mapping $\phi$ that can consist of any nonlinear function. On this feature vector we can use the already known methods for linear functions to find a solution.
 
 \subsection{Regularization}
 
-We will later see that too complex models are not always good, as the use too many features. If we want to reduce the number of features, we can encourage sparsity by introducing a penalty term. We commonly use:
+We will later see that too complex models are not always good, as they use too many features. If we want to reduce the number of features, we can encourage sparsity by introducing a penalty term. We commonly use:
 \begin{itemize}
 	\item \textbf{Lasso Regression}: $\argmin{w \in \R^d} ||y - \Phi w||^2 + \lambda ||w||_1$
 	\item \textbf{Ridge Regression}: $\argmin{w \in \R^d} ||y - \Phi w||^2 + \lambda ||w||_2$

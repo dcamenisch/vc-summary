@@ -37,7 +37,7 @@ $$\nabla \ell(\hat{f}(x), y) = \frac{y_i x_i}{1 + e^{y_i \hat{f}(x)}}$$
  For linearly separable data, gradient descent on the logistic loss converges to the direction $w_\text{MM}$ that maximizes the minimum $\ell_2$-distance between the decision boundary and $y_i$. We call this the \textbf{maximum-margin} solution.
  
  In particular we can write:
- $$w_\text{MM} = \argmax{||w||_2 = 1} \min_i y_i w^\top x_i ) = \argmax{||w||_2 = 1} \; \text{margin} (w)$$
+ $$w_\text{MM} = \argmax{||w||_2 = 1} \min_i y_i w^\top x_i = \argmax{||w||_2 = 1} \; \text{margin} (w)$$
  
  Instead of just linear functions, we can again use feature mapping to receive nonlinear classifiers.
  

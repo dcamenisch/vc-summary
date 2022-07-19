@@ -15,7 +15,7 @@ $$||w^t - w^*||_2 \leq \rho^t ||w^0 - w^*||_2, \quad \rho = ||I - \eta X^\top X|
 Where $\rho$ is the convergence speed for constant stepsize $\eta$. This leads to an optimal fixed stepsize of:
 $$\eta = \frac{2}{\lambda_{\text{min}} + \lambda_{\text{max}}}$$
 
-We stop when new iterations does not change anymore (below a certain threshold).
+We stop when new iterations do not cause any change anymore (below a certain threshold).
 
 To make gradient descent more stable / robust against ill-conditioned landscapes we might add momentum:
 $$w^{t+1} = w^t + \gamma \Delta w^{t-1} - \eta_t \nabla \ell(w^t)$$
