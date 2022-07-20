@@ -28,7 +28,7 @@ First we are gonna look at the simpler version of the EM (expectation maximizati
 		\end{itemize}
 \end{itemize}
 
-There are some problems with this approach, for one points are assigned a label even though the model is uncertain. Further it tries to extract too much information from a single point. In practice, this may work poorly if clusters are overlapping.
+There are some problems with this approach, for one points are assigned a label even though the model is uncertain. Further it tries to extract too much information from a single point. In practice, this may work poorly if clusters are overlapping. Hard-EM with uniform weights and spherical covariances is equivalent to k-Means with Lloyd's heuristics.
 
 \subsection{Soft-EM Algorithm}
 
@@ -48,6 +48,26 @@ Instead of predicting hard class assignments for each data point we want to pred
 			 		\Sigma_j^{(t)} &= \frac{\sum_{i=1}^n \gamma_j^{(t)}(x_i)(x_i - \mu_j^{(t)})(x_i - \mu_j^{(t)})^\top}{\sum_{i=1}^n \gamma_j^{(t)}(x_i)}
 			 	\end{align*}
 		\end{itemize}
-\end{itemize}
+\end{itemize}à
 
+In general, Soft-EM will typically result in higher likelihood values, as it can better deal with "overlapping" clusters. When speaking of EM we usually refer to Soft-EM. \smallskip
 
+The EM algorithm is sensitive to initialization. We usually initialize the weights as uniformly distributed, the means randomly or with k-Means++ and for variances we use spherical initialization or empirical covariance of the data. To select $k$, in contrast to k-Means, we can use cross-validation.
+
+\subsection{Degeneracy of GMMs}
+
+GMMs can overfit when only having limited data, we want to avoid that the Gaussians get too narrow and fit to a single data point. To avoid this we add $v^2 I$ to our variance. This makes sure that the variance does not collapse and is equivalent to placing a Wishart prior the covariance matrix, and computing the MAP. We choose $v$ by cross-validation.
+
+\subsection{Gaussian-Mixture Bayes Classifiers}
+
+We can apply GMMs to labeled data sets for classification, by assuming that the conditional distribution for each class can be modelled by a GMM.
+
+$$p(x \; | \; y) = \sum_{j=1}^{k_y} w_j^{(y)} \mathcal{N}(x; \mu_j^{(y)}, \Sigma_j^{(y)})$$
+
+We can then use this model for classification:
+
+$$p(y \; | \; x) = \frac{1}{z} p(y)  \sum_{j=1}^{k_y} w_j^{(y)} \mathcal{N}(x; \mu_j^{(y)}, \Sigma_j^{(y)})$$
+
+\begin{center}
+	\includegraphics[width=0.7\columnwidth]{gmmb.jpeg}
+\end{center}
