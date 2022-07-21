@@ -17,6 +17,8 @@ $$\ell(y, f(x)) := \frac{1}{n}\sum (y_i - f(x_i))^2 = \frac{1}{n}||y - X w||_2^2
 In the matrix notation $b$ is part of $w$. The closed form solution for linear regression is given by the normal equation $Ax - b \Rightarrow x = (A^\top A)^{-1} A^\top y$:
 $$\hat{w} = (X^\top X)^{-1}X^\top y$$
 
+\columnbreak
+
 We can also get the closed form solution by using the fact that the squared loss is a convex function and $\hat{w}$ is the global minima of this function. Therefore we can calculate the gradient $\nabla \ell(y, f(x))$ and solve for $0$ to find $\hat{w}$. Later, we will see a more efficient way of finding $\hat{w}$. \medskip
 
 \subsubsection{Different Loss Functions}
@@ -42,7 +44,9 @@ From our input vector $x$ we extract a \textbf{feature vector} $\phi(x)$ by usin
 
 \subsection{Regularization}
 
-We will later see that too complex models are not always good, as they use too many features. If we want to reduce the number of features, we can encourage sparsity by introducing a penalty term. We commonly use:
+We will later see that too complex models are not always good, as they use too many features. If we want to reduce the number of features, we can encourage sparsity by introducing a penalty term. 
+
+We commonly use:
 \begin{itemize}
 	\item \textbf{Lasso Regression}: $\argmin{w \in \R^d} ||y - \Phi w||^2 + \lambda ||w||_1$
 	\item \textbf{Ridge Regression}: $\argmin{w \in \R^d} ||y - \Phi w||^2 + \lambda ||w||_2$

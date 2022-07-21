@@ -17,6 +17,8 @@ $$\eta = \frac{2}{\lambda_{\text{min}} + \lambda_{\text{max}}}$$
 
 We stop when new iterations do not cause any change anymore (below a certain threshold).
 
+\columnbreak
+
 To make gradient descent more stable / robust against ill-conditioned landscapes we might add momentum:
 $$w^{t+1} = w^t + \gamma \Delta w^{t-1} - \eta_t \nabla \ell(w^t)$$
 

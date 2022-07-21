@@ -17,6 +17,8 @@ We want to find a test that minimizes the FPR, while controlling the FNR. This c
 
 We want to have a large recall $\frac{TP}{\#[y = +1]}$ but also a small FPR. Based on these metrics we can draw the ROC curve by varying $\tau$.
 
-\includegraphics[width=\columnwidth]{roc.png}
+\begin{center}
+	\includegraphics[width=0.87\columnwidth]{roc.png}
+\end{center}
 
 We can either choose our model by caring about a specific point, e.g. TPR $@$ FPR = 5\%, or we choose whichever courve gets closer to the ideal curve, that is maximizing the area under the curve.
