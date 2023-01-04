@@ -9,7 +9,7 @@ Image filtering is the process of modifying pixels in an image base on some func
 
 \subsubsection{Linear Shift-Invariant Filtering}
 
-Linear lhift-invariant filtering means using linear combinations of neighbors and doing the same for each pixel (shift-invariant). These filters are often used for low-level image processing, smoothing / noise reduction, sharpening and feature detection. Linear operations can be written as:
+Linear shift-invariant filtering means using linear combinations of neighbors and doing the same for each pixel (shift-invariant). These filters are often used for low-level image processing, smoothing / noise reduction, sharpening and feature detection. Linear operations can be written as:
 $$I'(x,y) = \sum_{(i,j) \in N(x,y)} K(x,y; i, j) I(x,y)$$
 
 Here $I$ is the input image, $I'$ the output image, $K$ is the kernel and $N$ is the neighborhood. Operations are shift-invariant if $K$ does not depend on $(x,y)$.
