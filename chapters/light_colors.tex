@@ -62,6 +62,9 @@ These transformed curves have the properties that they are normalized, positive 
 As the XYZ color space is 3D, it is often not very practical. Therefore we normalize the XYZ components and project it into a 2D space:
 $$x = \frac{X}{X + Y + Z} \qquad y = \frac{Y}{X + Y + Z}$$
 
+To reverse is given by:
+$$X = x \cdot \frac{Y}{y} \qquad Z = \frac{Y}{y} - x \cdot \frac{Y}{y} - Y$$
+
 Now $(x,y)$ characterize color and $Y$ characterizes brightness. If we plot $(x,y)$ on a plane, we get all the colors of a single brightness (chromaticity chart).
 \begin{center}
 	\includegraphics[width=0.65\linewidth]{horseshoe.png}

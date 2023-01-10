@@ -23,7 +23,9 @@ We can interpret this transformation as follows: "No other unitary transformatio
 	\includegraphics[width=\linewidth]{energy_concentration.png}
 \end{center}
 
-The basis images, which are the eigenvectors of the autocorrelation matrix, are called \textbf{eigenimages}. We can use eigenimages for recognition tasks, as the high dimensionality of the images space can be reduced to $k$ dimensions. To perform recogintion, we tailor a KLT / PCA to the specific set of images we want to recognize, for example this lead to Eigenfaces.
+The basis images, which are the eigenvectors of the autocorrelation matrix, are called \textbf{eigenimages}. We can use eigenimages for recognition tasks, as the high dimensionality of the images space can be reduced to $k$ dimensions. To perform recogintion, we tailor a KLT / PCA to the specific set of images we want to recognize, for example this lead to Eigenfaces. \medskip
+
+The first principal component is the eigenvector with the largest eigenvalue. The eigenvalue can be interpreted as denoting the variance in the direction of the corresponding eigenvector. So the principal component shows in which direction the data is most spread out.
 
 \subsubsection{Fisherfaces}
 
@@ -45,4 +47,11 @@ This is one of the main concepts in JPEG compression. Instead of FT, JPEG uses d
 	\includegraphics[width=\linewidth]{jpeg_compression.png}
 \end{center}
 
-If the coefficients get too small after a certain point, we simply leave them away. In the end we apply Huffman encoding to further reduce the size of our image.
+If the coefficients get too small after a certain point, we simply leave them away. In the end we apply Huffman encoding to further reduce the size of our image. \medskip
+
+JPEG tends to introduce three kinds of distortions:
+\begin{itemize}
+	\item General loss of sharpness and oscillations around high-contrast edges: these are due to approximating intensity transitions with smooth functions (cosines).
+	\item Blocking structure: image is processed separately for every 8x8 block, block edges become visible at high compression ratios.
+	\item Loss of color detail: the program may aggressively "downsample" chromaticity channels.
+\end{itemize}

@@ -110,3 +110,10 @@ K' =
 $$
 
 High-pass filters can be used to perform image sharpening $I' = I + \alpha |K * I|$.
+
+\subsubsection{Integral Image}
+
+The integral image or summed area table is defined as:
+$$\int_0^x \int_0^y I(x,y)dydx$$
+
+It is the sum of all pixels in a rectangle spanned from the origin to a point $(x,y)$. The integral image can be used to speed up calculating the convolution with a constant rectangle.

@@ -13,6 +13,12 @@ $$r(p, q) = \sum_{x = -\infty}^\infty \sum_{y = -\infty}^\infty s(x,y) \cdot t(x
 
 \subsection{Edge Detection}
 
+For edge detection we need to calculate the gradient magnitude $M$ and the gradient orientation $\alpha$:
+$$M(x,y)=\sqrt{\left(\frac{\delta f}{\delta x}\right)^2+\left(\frac{\delta f}{\delta y}\right)^2}$$ 
+$$\quad \alpha (x,y) = \tan^{-1}\left(\frac{\delta f}{\delta y}\middle /\frac{\delta f}{\delta x}\right)$$
+
+
+
 We have previously seen kernels that can detect horizontal edges. To expand on this, we differentiate the following kernels:
 $$ \text{Prewitt} 
 \begin{bmatrix}
@@ -83,7 +89,9 @@ There is a problem with this approach, the parameter space is infinite. To avoid
 	\includegraphics[width=\linewidth]{hough_transform3.png}
 \end{center}
 
-To find multiple lines we do non-maxima suppression and keep every strong peek. To expand this concept to circle detection we simply change the parameter space.
+To find multiple lines we do non-maxima suppression and keep every strong peek. To expand this concept to circle detection we simply change the parameter space. \medskip
+
+One downside is that two line segments that lie on the same line but are some difference apart cannot be distinguished but appear as a single line.
 
 
 \subsection{Keypoint Detection}
