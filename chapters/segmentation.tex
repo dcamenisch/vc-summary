@@ -46,7 +46,7 @@ Another criteria is a snake (active contour). While each point along the contour
 \subsection{Distance Measures}
 
 Plain background substraction $I_\alpha = |I - I_{bg}| > T$, where $I_{bg}$ is the background image, we get this by fitting a Gaussian (Mixture) model per pixel. Even better would be:
-$$I_\alpha = \sqrt{(I - I_{bg})^\top \Sigma (I - I_{bg})} > T$$
+$$I_\alpha = \sqrt{(I - I_{bg})^\top \Sigma^{-1} (I - I_{bg})} > T$$
 
 Where $\Sigma$ is the background pixel appearance covariance matrix.
 
