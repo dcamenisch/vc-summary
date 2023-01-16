@@ -84,7 +84,10 @@ If we do this for multiple edge points and subdivide the parameter space into di
 	\includegraphics[width=\linewidth]{hough_transform2.png}
 \end{center}
 
-There is a problem with this approach, the parameter space is infinite. To avoid this problem we choose an alternative parametrization, in this case we represent a line as an angle and the distance from the origin. Now the representations in parameter space are not lines but sine waves. Again we find the maxima to find our lines.
+There is a problem with this approach, the parameter space is infinite. To avoid this problem we choose an alternative parametrization, in this case we represent a line as an angle and the distance from the origin. Now the representations in parameter space are not lines but sine waves.
+$$p = x \cos \theta + y \sin \theta$$ 
+
+Again we find the maxima to find our lines.
 \begin{center}
 	\includegraphics[width=\linewidth]{hough_transform3.png}
 \end{center}
@@ -114,7 +117,7 @@ If we plot the values for the eigenvalues, we can divide the space as follows:
 	\includegraphics[width=0.6\linewidth]{keypoint_detection.png}
 \end{center}
 
-One problem of this approach is that it is not invariant to scale. \medskip
+This is invariant to rotation since the eigenvalues remain the same after a rotation. But it is not invariant to scale, since the window is constant size. To make it scale invariant we can look for strong responses of DoG filter over scale space and only consider local maxima in both position and scale space.\medskip
 
 To compare different images, e.g. for combining images. We use thresholded image gradients that are sampled over an array of locations in scale space. This can then be used for example to stich images together (SIFT).
 

@@ -25,7 +25,20 @@ We can interpret this transformation as follows: "No other unitary transformatio
 
 The basis images, which are the eigenvectors of the autocorrelation matrix, are called \textbf{eigenimages}. We can use eigenimages for recognition tasks, as the high dimensionality of the images space can be reduced to $k$ dimensions. To perform recogintion, we tailor a KLT / PCA to the specific set of images we want to recognize, for example this lead to Eigenfaces. \medskip
 
-The first principal component is the eigenvector with the largest eigenvalue. The eigenvalue can be interpreted as denoting the variance in the direction of the corresponding eigenvector. So the principal component shows in which direction the data is most spread out.
+The first principal component is the eigenvector with the largest eigenvalue. The eigenvalue can be interpreted as denoting the variance in the direction of the corresponding eigenvector. So the principal component shows in which direction the data is most spread out. \medskip
+
+We can summaries the steps of PCA by:
+\begin{itemize}
+	\item Subtract mean from the data and normalize
+	\item Store data (images) as columns in a matrix
+	\item Compute the covariance matrix of the resulting matrix
+	\item Perform Eigenvalue Decomposition to get the eigenvalues and eigenvectors
+	\item Sort the eigenvectors by descending value of corresponding eigenvalues
+	\item Take the first $k$ as principal component matrix $U_k$
+	\item Project any further samples $I$ into this space by multiplying the sample with the PC-matrix $U_k^\top (I - \text{mean})$
+\end{itemize}
+
+To restore a compressed image $I_c$ we compute $I = U_k I_c + \text{mean}$.
 
 \subsubsection{Fisherfaces}
 

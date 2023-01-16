@@ -22,7 +22,7 @@ The key issues for textures are analysis / segmentation, representing the textur
 
 \subsection{Representing Textures}
 
-Textures are made up of stylised subelements, repeated in meaningful ways. To represent a texture we can try to find these subelements and represent their statistics. Finding the subelements can be done by applying filters and looking at the magnitude of the response. Possible filters could be spots and oriented bars at a variety of different scales (image pyramids).
+Textures are made up of stylised subelements, repeated in meaningful ways. To represent a texture we can try to find these subelements and represent their statistics. Finding the subelements can be done by applying filters and looking at the magnitude of the response. Possible filters could be spots and oriented bars at a variety of different scales (image pyramids). We do this by building a Laplacian pyramid of the image of the texture and then apply a number of oriented filters to each level. This represents image information at a particular scale and orientation.
 
 \subsection{Texture Synthesis}
 
@@ -32,3 +32,7 @@ There is a variety of approaches to texture synthesis. One might use a histogram
 \end{center}
 
 To synthesize $p$, just pick one match at random. This can be expanded to work on patches of images and not single pixels.
+
+\subsubsection{Chaos Mosaic}
+
+Another method for image synthesis is using a chaos mosaic. It works by tiling the input image, picking random patches and then smoothing the edges between them. This works best for random textures but will fail for structured ones.

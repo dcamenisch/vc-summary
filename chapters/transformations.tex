@@ -75,7 +75,7 @@ We also want to use homogeneous coordinates in the 3D space.
 		s_x & 0 & 0 & 0 \\ 0 & s_y & 0 & 0 \\ 0 & 0 & s_z & 0 \\ 0 & 0 & 0 & 1
 	\end{bmatrix}$$
 	
-	\item Rotation - this is \textbf{not commutative} anymore!
+	\item Rotation - this is \textbf{not commutative} anymore! For 3D rotations we have $R^{-1} = R^\top$.
 	$$\textbf R_x = \begin{bmatrix}
 		1 & 0 & 0 & 0 \\ 0 & \cos \theta & - \sin \theta & 0 \\ 0 & \sin \theta & \cos \theta & 0 \\ 0 & 0 & 0 & 1
 	\end{bmatrix}$$
@@ -154,6 +154,10 @@ $$\textbf M = \begin{bmatrix}
 	0 & 0 & 0 & 0 \\
 	0 & 0 & 0 & 1
 \end{bmatrix}$$
+
+\subsubsection{Projections in OpenGL}
+
+In OpenGL \texttt{modelviewMatrix} is used to project from object to camera space and \texttt{projectionMatrix} projects from camera to screen space.
 
 
 

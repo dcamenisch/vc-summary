@@ -70,7 +70,9 @@ Now $(x,y)$ characterize color and $Y$ characterizes brightness. If we plot $(x,
 	\includegraphics[width=0.65\linewidth]{horseshoe.png}
 \end{center}
  
-The primary colors are on the boundary of the horse shoe and all linear combinations of two colors are on a line. Screens are limited to a combination of three colors (triangle  in the chart), so they can not show all possible colors.\medskip
+The primary colors are on the boundary of the horse shoe and all linear combinations of two colors are on a line. The line between 380mm and 770mm is called the purple line and represents colors that are not spectral. Further if we have a point and draw a straight line connecting it with white and the pure color on the edge, we end up with a line sharing the same dominant wavelength. The position along this line characterizes saturation. \medskip
+
+Screens are limited to a combination of three colors (triangle  in the chart), so they can not show all possible colors.\medskip
 
 \textbf{Other Color Spaces}\smallskip
 
@@ -82,6 +84,8 @@ $$\begin{pmatrix}
 \end{pmatrix} - \begin{pmatrix}
 	R \\ G \\ B
 \end{pmatrix}$$
+
+The main difference between RGB and CMY is that RGB is an additive color space, that is every color that can be represented is a non negative linear combination of the 3 primaries. CMY on the other hand is a subtractive color space, that is every color that can be represented in CMY is a non positive linear combination of the 3 primaries. \medskip
 
 The \textbf{HSV color space} consists of hue (base color), saturation (purity of color) and value (brighness). This is a more user oriented color space, as it is rather intuitive to interact with. \medskip
 

@@ -36,7 +36,12 @@ Convolution, e.g. point spread function:
 \end{center}
 $$I' = K * I, \quad I'(x,y) = \sum_{(i,j) \in N(x,y)} K(i, j) I(x - i, y - j)$$
 
-This is similar to the correlation, but \textbf{the kernel is reversed}. This can be described as taking one input location and writing multiple output location, the opposite of the correlation. By default we use convolution for filtering. An example for a kernel would be:
+This is similar to the correlation, but \textbf{the kernel is reversed}. 
+$$I'(x,y) = \sum_{(i,j) \in N(x,y)} K(-i, -j) I(x + i, y + j)$$
+
+If $K(i,j) = K(-i,-j)$ we call the operations dual. \medskip
+
+Convolution can be described as taking one input location and writing multiple output location, the opposite of the correlation. By default we use convolution for filtering. An example for a kernel would be:
 $$ K = 
 \begin{bmatrix}
     0 & 0 & 0\\
@@ -85,7 +90,7 @@ The idea of the \textbf{Gaussian Kernel} is to weight the contributions of neigh
 \begin{center}
 	\includegraphics[width=0.9\linewidth]{gaussian_kernel.png}
 \end{center}
-$$G_\sigma = \frac{1}{2 \pi \sigma^2}^{- \frac{(x^2 + y^2)}{2 \sigma^2}}$$
+$$G_\sigma = \frac{1}{2 \pi \sigma^2} * e^{- \frac{(x^2 + y^2)}{2 \sigma^2}}$$
 
 We can use the Gaussian Kernel for image smoothing, the best part being that the kernel is separable. The actual amount of smoothing depends on $\sigma$ and the window size. \medskip
 
@@ -116,4 +121,6 @@ High-pass filters can be used to perform image sharpening $I' = I + \alpha |K * 
 The integral image or summed area table is defined as:
 $$\int_0^x \int_0^y I(x,y)dydx$$
 
-It is the sum of all pixels in a rectangle spanned from the origin to a point $(x,y)$. The integral image can be used to speed up calculating the convolution with a constant rectangle.
+It is the sum of all pixels in a rectangle spanned from the origin to a point $(x,y)$. The integral image can be used to speed up calculating the convolution with a constant rectangle. \medskip
+
+We can get a high-pass filter from a \textit{normalized} low-pass filter by calculating $I - L = H$.

@@ -8,7 +8,9 @@ $$\frac{\mathrm{d} I}{\mathrm{d} t} = \frac{\partial I}{\partial x} \frac{\mathr
 
 \subsection{Aperture Problem}
 
-If we look at the previous equation, we see that we have two unknowns $u$ and $v$, meaning we have an under constraint problem. This is called the \textbf{aperture problem}. The simplest solution to this problem is called the \textbf{normal flow}.
+If we look at the previous equation, we see that we have two unknowns $u$ and $v$, meaning we have an under constraint problem. This is called the \textbf{aperture problem}. The aperture problem refers to the fact that when flow is computed for a point that lies along a linear feature, it is not possible to determine the exact location of the corresponding point in the second image. Thus, it is only possible to determine the flow that is normal to the linear feature. \medskip
+
+The simplest solution to this problem is called the \textbf{normal flow}.
 $$u_\bot = - \frac{I_t}{|\nabla I|} \frac{\nabla I}{|\nabla I|}$$
 
 
@@ -53,7 +55,7 @@ $$\textbf M \textbf U = \left( \sum \nabla I \nabla I^\top \right) \textbf U = -
 
 The Lucas-Kanade algorithm works by computing \textbf U for at each pixel and then solving $\textbf M \textbf U = b$. \textbf M is singular if all gradients point in the same direction, i.e. only normal flow is available. \medskip
 
-We can refine our estimates by repeating the process multiple times.
+We can refine our estimates by repeating the process multiple times and warping one image to the other using the estimated flow of the previous step.
 
 
 \subsection{Coarse to Fine}
